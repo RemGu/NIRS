@@ -39,11 +39,7 @@ public:
     ~MainWindow();
     QImage Mat2QImage( cv::Mat const& src ) ;
     cv::Mat QImage2Mat( QImage const& src ) ;
-    //connect(ui->srcGraphicsView->verticalScrollBar(), SIGNAL(sliderMoved(int)), ui->dstGraphicsView->verticalScrollBar(),  SLOT(setValue(int)));
-   // connect(ui->dstGraphicsView->verticalScrollBar(), SIGNAL(sliderMoved(int)), ui->srcGraphicsView->verticalScrollBar(),SLOT(setValue(int)));
-
-    //connect(ui->srcGraphicsView->horizontalScrollBar(), SIGNAL(sliderMoved(int)), ui->dstGraphicsView->horizontalScrollBar(), SLOT(setValue(int)));
-    //connect(ui->dstGraphicsView->horizontalScrollBar(), SIGNAL(sliderMoved(int)), ui->srcGraphicsView->horizontalScrollBar(), SLOT(setValue(int)));
+   
 
 
 
