@@ -471,44 +471,7 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 
 void MainWindow::on_conButton_clicked()
 {
-   /* QImage temp = nPixSrc->pixmap().toImage();
-
-    int w = temp.width()  ;
-    int h = temp.height() ;
-
-
-
-    for( int y = 0 ; y < h ; ++y )
-    {
-        for( int x = 0 ; x < w ; ++x )
-        {
-            int r, g, b, h, s, l ;
-            QColor tempRGB = QColor::fromRgb(temp.pixel(x,y) ) ;
-            tempRGB.getRgb(&r, &g, &b) ;
-            if( (r != 0) && (g != 0) && (b != 0))
-            {
-                QColor tempHSL = tempRGB.toHsl() ;
-
-                tempHSL.getHsl(&h, &s, &l) ;
-
-                l = int(255*pow( (double(l)/255) , 0.7) ) ;      //v * Kbr ;
-                if(l > 255)
-                    l = 255;
-
-
-                tempHSL.setHsl(h, s, l) ;
-
-                tempRGB = tempHSL.toRgb() ;
-                tempRGB.getRgb(&r, &g, &b) ;
-                temp.setPixel(x, y, qRgb( r, g, b) );
-            }
-        }
-    }
-
-    nPixF->setPixmap(QPixmap::fromImage( temp) ) ;*/
-
-
-
+   
 
     //GrayPicture();
     QImage im = nPixSrc->pixmap().toImage();
@@ -537,23 +500,7 @@ void MainWindow::on_conButton_clicked()
 
 
 
-    /*Mat m, b, h;
-    m = QImage2Mat(im);
-    m.convertTo(m, CV_8UC3);
-    cvtColor(m, b, CV_BGR2GRAY);
-
-
-
-
-    Ptr<CLAHE> clahe = createCLAHE();
-    clahe->setClipLimit(3);
-
-    Mat dst;
-    clahe->apply(b,dst);
-    cvtColor(dst, h, CV_GRAY2BGR);
-    nPixF->setPixmap( QPixmap::fromImage( Mat2QImage( h)) );*/
-
-
+  
 
 
 }
@@ -561,82 +508,7 @@ void MainWindow::on_conButton_clicked()
 
 void MainWindow::on_binButton_clicked()
 {
-   /* using namespace cv;
-    QImage temp = nPixDst->pixmap().toImage();
-
-
-    Mat inpImg, bw, dist;
-    inpImg = QImage2Mat(temp);
-
-    inpImg.convertTo(inpImg, CV_8UC3);
-    cvtColor(inpImg, bw, CV_BGR2GRAY);
-    threshold(bw, bw, 100, 255, CV_THRESH_BINARY | THRESH_OTSU);
-    bw.convertTo(inpImg, CV_8UC3);
-
-    distanceTransform(bw, dist, CV_DIST_L2, 3 );
-    dist.convertTo(dist, CV_8UC3);
-    normalize(dist, dist, 255, 0, NORM_MINMAX);
-    dist.convertTo(dist, CV_8UC3);
-
-    Mat dist_8u, binary;
-    dist.convertTo(dist_8u, CV_8UC3);
-    std::vector<std::vector<cv::Point> > contours;
-    std::vector<cv::Vec4i> hierarchy;
-
-    findContours(dist_8u, contours,hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);
-
-    int ncomp = contours.size();
-
-    Mat markers = Mat::zeros(dist.size(), CV_8UC3);
-
-    for (size_t i = 0; i < ncomp; i++)
-    {
-        drawContours(markers, contours, i , CV_RGB(0,255,0), 2, 8);
-    }
-
-    cvtColor(markers, binary, CV_BGR2GRAY);
-
-    nPixDst->setPixmap( QPixmap::fromImage( Mat2QImage( markers)) );*/
-
-   /* QImage temp = nPixSrc->pixmap().toImage();
-
-    int w = temp.width()  ;
-    int h = temp.height() ;
-
-
-
-    for( int y = 0 ; y < h ; ++y )
-    {
-        for( int x = 0 ; x < w ; ++x )
-        {
-            int r, g, b, h, s, v ;
-            QColor tempRGB = QColor::fromRgb(temp.pixel(x,y) ) ;
-            tempRGB.getRgb(&r, &g, &b) ;
-            if( (r != 0) && (g != 0) && (b != 0))
-            {
-                QColor tempHSV = tempRGB.toHsv() ;
-
-                tempHSV.getHsv(&h, &s, &v) ;
-
-                v = int(255*pow( (double(v)/255) , 0.7 ) ) ;      //v * Kbr ;
-                if(v > 255)
-                    v = 255;
-
-
-                tempHSV.setHsv(h, s, v) ;
-
-                tempRGB = tempHSV.toRgb() ;
-                tempRGB.getRgb(&r, &g, &b) ;
-                temp.setPixel(x, y, qRgb( r, g, b) );
-            }
-        }
-    }
-
-    nPixDst->setPixmap(QPixmap::fromImage( temp) ) ;*/
-
-
-
-
+  
     if(nPixF != nullptr)
     {
         QImage image = nPixF->pixmap().toImage();
